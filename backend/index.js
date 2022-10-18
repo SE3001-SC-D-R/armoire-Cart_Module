@@ -1,38 +1,24 @@
-/**
- * This is a basic starting point of the assignment
- * Modify the code according to your own needs and requirements
- */
+const express = require("express");
+const app = express();
+const mongoose = require("mongoose");
 
-//const express = require('express')
-import express from 'express'; // <-- Module Style import
-import bodyParser from 'body-parser';
+const ItemModel = require('./models/Items')
 
-// Importing user route
-import router from './routes/users.js';
-// const router = require('router')
+const PORT = 5000
+const cors = require('cors');
 
-// const bodyParser = require('body-parser')
+app.use(express.json());
+app.use(cors());
 
-const app = express()
-const port = 3001
+// mongoose.connect("mongodb+srv://Hasham:F4D00E8C@cluster0.zotnclt.mongodb.net/mernpractice?retryWrites=true&w=majority")
+mongoose.connect("mongodb://localhost:27017")
 
-app.use(bodyParser.json())
-// Adding a Router
-app.use('/users', router);
 
-app.get('/', (req, res) => {
-    res.send('Hello Universe!')
+app.get('/shop-items', async (req, res) => {
+  const items = await ItemModel.find({})
+  res.send(items)
 })
 
-app.get('/todos', (req, res) => {
-    res.send('A list of todo items will be returned')
-})
-
-app.post('/', (req, res) => {
-    console.log(req.body)
-    res.send('Posting a Request')
-})
-
-app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
+app.listen(PORT, '192.168.1.12', () => {
+  console.log(`Server is running at ${PORT}`)
 })
