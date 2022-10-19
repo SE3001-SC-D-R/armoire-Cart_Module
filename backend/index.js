@@ -19,6 +19,6 @@ app.get('/shop-items', async (req, res) => {
   res.send(items)
 })
 
-app.listen(PORT, '192.168.1.12', () => {
+app.listen(PORT, 'localhost', () => {
   console.log(`Server is running at ${PORT}`)
 })
