@@ -106,9 +106,9 @@ const Cart = () => {
             <div className="col-md-6">
               <div className="row mb-5">
                 <div className="col-md-6 mb-3 mb-md-0">
-                 {/* <button className="btn btn-black btn-sm btn-block">
+                  <button className="btn btn-black btn-sm btn-block">
                     Update Cart
-                          </button> */}
+                          </button> 
                 </div>
                 <div className="col-md-6">
                   <button className="btn btn-outline-black btn-sm btn-block">
