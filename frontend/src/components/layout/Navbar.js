@@ -46,32 +46,37 @@ function Navbar() {
               </NavLink>
             </li>
             <li>
-              <a className="nav-link" href="about.html">
+              <NavLink
+               className="nav-link" to="about.html">
                 About us
-              </a>
+              </NavLink>
             </li>
             <li>
-              <a className="nav-link" href="services.html">
+              <NavLink
+               className="nav-link" to="services.html">
                 Services
-              </a>
+              </NavLink>
             </li>
             <li>
-              <a className="nav-link" href="blog.html">
+              <NavLink
+               className="nav-link" to="blog.html">
                 Blog
-              </a>
+              </NavLink>
             </li>
             <li>
-              <a className="nav-link" href="contact.html">
+              <NavLink
+               className="nav-link" to="contact.html">
                 Contact us
-              </a>
+              </NavLink>
             </li>
           </ul>
 
           <ul className="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
             <li>
-              <a className="nav-link" href="/">
+              <NavLink
+               className="nav-link" to="/">
                 <img src={userImg} alt="user icon" />
-              </a>
+              </NavLink>
             </li>
             <li>
               <NavLink className="nav-link" to="/cart">
