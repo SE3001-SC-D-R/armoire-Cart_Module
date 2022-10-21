@@ -19,9 +19,9 @@ function Item(props) {
           className="img-fluid product-thumbnail"
           alt="Not Found"
         />
-        <h3 className="product-title">{props.item.name}</h3>
-        <strong className="product-price">${props.item.price}</strong>
-        <p>{props.item.description}</p>
+        <h3 className="product-title">{props.item.Name}</h3>
+        <strong className="product-price">${props.item.Price}</strong>
+        <p>{props.item.Description}</p>
 
         <span onClick={addToCartHandler} className="icon-cross">
           <img src={crossImage} className="img-fluid" alt="Not Found" />

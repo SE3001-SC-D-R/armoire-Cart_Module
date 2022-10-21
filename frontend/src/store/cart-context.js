@@ -30,21 +30,21 @@ export const CartProvider = (props) => {
 
     if (!existingItem) {
       const cartItem = {
-        name: item.name,
-        price: item.price,
+        Name: item.Name,
+        Price: item.Price,
         id: item.id,
         quantity: 1,
-        total: item.price,
+        total: item.Price,
       };
 
       setCartItems((prev) => [...prev, cartItem]);
     } else {
       const cartItem = {
-        name: item.name,
-        price: item.price,
+        Name: item.Name,
+        Price: item.Price,
         id: item.id,
         quantity: existingItem.quantity + 1,
-        total: item.price * (existingItem.quantity + 1),
+        total: item.Price * (existingItem.quantity + 1),
       };
 
       setCartItems((prev) => {
@@ -52,14 +52,14 @@ export const CartProvider = (props) => {
         return [...updatedItems, cartItem];
       });
     }
-    setTotal((prev) => prev + item.price);
+    setTotal((prev) => prev + item.Price);
   };
 
   const onIncreaseQuantity = (id) => {
     const existingItem = cartItems.find((i) => i.id === id);
     existingItem.quantity = existingItem.quantity + 1;
-    existingItem.total = existingItem.price * existingItem.quantity;
-    setTotal((prev) => prev + existingItem.price);
+    existingItem.total = existingItem.Price * existingItem.quantity;
+    setTotal((prev) => prev + existingItem.Price);
 
     setCartItems((prev) => {
       const updatedItems = prev.filter((i) => i.id !== existingItem.id);
@@ -70,8 +70,8 @@ export const CartProvider = (props) => {
   const onDecreaseQuantity = (id) => {
     const existingItem = cartItems.find((i) => i.id === id);
     existingItem.quantity = existingItem.quantity - 1;
-    existingItem.total = existingItem.price * existingItem.quantity;
-    setTotal((prev) => prev - existingItem.price);
+    existingItem.total = existingItem.Price * existingItem.quantity;
+    setTotal((prev) => prev - existingItem.Price);
 
     if (existingItem.quantity === 0) {
       setCartItems((prev) => {

@@ -10,13 +10,14 @@ const cors = require('cors');
 app.use(express.json());
 app.use(cors());
 
-// mongoose.connect("mongodb+srv://Hasham:F4D00E8C@cluster0.zotnclt.mongodb.net/mernpractice?retryWrites=true&w=majority")
-mongoose.connect("mongodb://localhost:27017")
+mongoose.connect("mongodb+srv://saraq268:4n4XSMe1IE8vukPN@cluster0.l2i8oag.mongodb.net/armoire?retryWrites=true&w=majority").then((res)=> console.log(res.body)).catch((err)=>console.log(err.reason))
+//mongoose.connect("mongodb://localhost:27017")
+
 
 
 app.get('/shop-items', async (req, res) => {
   const items = await ItemModel.find({})
-  res.send(items)
+  res.json(items)
 })
 
 app.listen(PORT, 'localhost', () => {

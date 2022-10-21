@@ -48,9 +48,9 @@ const Cart = () => {
                                 />
                               </td> */}
                         <td className="product-name">
-                          <h2 className="h5 text-black">{item.name}</h2>
+                          <h2 className="h5 text-black">{item.Name}</h2>
                         </td>
-                        <td>${item.price}</td>
+                        <td>${item.Price}</td>
                         <td>
                           <div
                             className="input-group mb-3 d-flex align-items-center quantity-container"

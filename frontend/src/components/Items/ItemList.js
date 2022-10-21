@@ -14,9 +14,13 @@ const ItemList = () => {
       const transformedData = data.map((item) => {
         return {
           id: item._id,
-          name: item.name,
-          price: item.price,
-          description: item.description,
+          Name: item.Name,
+          url: item.url,
+          Category: item.Category,
+          Price: item.Price,
+          stock: item.stock,
+          Description: item.Description,
+          selectedImage: item.selectedImage,
         };
       });
 
@@ -33,7 +37,7 @@ const ItemList = () => {
           {shopItems.map((item) => (
             <Item key={item.id} item={item} />
           ))}
-        </div>
+        </div>  
       </div>
     </div>
   );
