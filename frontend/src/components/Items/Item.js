@@ -9,6 +9,7 @@ function Item(props) {
 
   const addToCartHandler = () => {
     cartCtx.addItem(props.item);
+    alert('Product has been added to cart')
   };
 
   return (
