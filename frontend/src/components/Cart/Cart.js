@@ -21,7 +21,7 @@ const Cart = () => {
       </div>
       {/* <!-- End Hero Section --> */}
 
-      <div className="untree_co-section before-footer-section">
+      <div data-testid= "cartComp" className="untree_co-section before-footer-section">
         <div className="container">
           <div className="row mb-5">
             <form className="col-md-12" method="post">

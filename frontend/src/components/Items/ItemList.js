@@ -31,7 +31,7 @@ const ItemList = () => {
   }, []);
 
   return (
-    <div className="untree_co-section product-section before-footer-section">
+    <div data-testid= "itemListComp" className="untree_co-section product-section before-footer-section">
       <div className="container">
         <div className="row">
           {shopItems.map((item) => (
