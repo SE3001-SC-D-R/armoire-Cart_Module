@@ -4,14 +4,22 @@ const mongoose = require("mongoose");
 
 const ItemModel = require('./models/Items')
 
-const PORT = 5000
+require('dotenv').config();
+
+
+const PORT = process.env.PORT || 5000;
 const cors = require('cors');
 
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect("mongodb+srv://saraq268:4n4XSMe1IE8vukPN@cluster0.l2i8oag.mongodb.net/armoire?retryWrites=true&w=majority")
-//mongoose.connect("mongodb://localhost:27017")
+const connectionURL = process.env.mongodbURI
+mongoose
+.connect(connectionURL)
+.then(() => console.log("Mongodb connected to - successfully!"))
+.catch((err) => {
+    console.log(err);
+  });
 
 app.get('/shop-items', async (req, res) => {
   const items = await ItemModel.find({})
