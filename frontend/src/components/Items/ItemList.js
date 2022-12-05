@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Item from "./Item";
 
-const URL = "http://localhost:5000/shop-items";
+const URL = "http://localhost:3001/shop-items";
 
 const ItemList = () => {
   const [shopItems, setShopItems] = useState([]);

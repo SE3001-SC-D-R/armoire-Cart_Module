@@ -1,30 +1,52 @@
-version: "3.8"
+version: "3.7"
 services:
-  mongodb:
-    image: "mongo"
-    volumes:
-      - data:/data/db
-  backend:
-    build: ./backend
-    ports:
-      - "5000:5000"
-    volumes:
-      - logs:/app/logs
-      - ./backend:/app
-      - /app/node_modules
-    depends_on:
-      - mongodb
+  
+  ui:
+   build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+   ports:
+    -  3000:3000
+   container_name: mern-ui
+   networks:
+    -  mern-stack-net
+   volumes:
+    -  ./frontend/src:/usr/app/src
+    -  ./frontend/public:/usr/app/public
+   depends_on:
+    - api
+   stdin_open: true
+   tty: true
 
-  frontend:
-    build: ./frontend
+  api:
+   build:
+      context: ./backend
+      dockerfile: Dockerfile.dev
+   ports:
+     - 3001:3001
+   container_name: mern-api
+   command: ["npm","start"]
+   networks:
+     - mern-stack-net
+   volumes:
+    - ./backend/src:/usr/app/src
+   depends_on:
+    - db
+
+  db:
+    image: mongo
     ports:
-      - "3000:3000"
+      - 27017:27017
+    container_name: mongo-db
+    networks:
+      - mern-stack-net
     volumes:
-      - ./frontend:/src:/app/src
-    stdin_open: true
-    tty: true
-    depends_on:
-      - backend
+      - mongo-data:/data/db
+
+networks:
+  mern-stack-net:
+    driver: bridge
+
 volumes:
-  data:
-  logs:
+  mongo-data:
+    driver: local
