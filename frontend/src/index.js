@@ -8,7 +8,7 @@ import { BrowserRouter } from "react-router-dom";
 import { CartProvider } from "./store/cart-context";
 
 import "./css/bootstrap.min.css";
-import "./css/tiny-slider.css";
+//import "./css/tiny-slider.css";
 import "./css/style.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
